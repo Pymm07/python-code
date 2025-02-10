@@ -7,7 +7,12 @@ groups2 = [class_list[i:i+2] for i in range(0, len(class_list), 2)]
 groups3 = [class_list[i:i+3] for i in range(0, len(class_list), 3)]
 groups4 = [class_list[i:i+4] for i in range(0, len(class_list), 4)]
 
-userInput = input("Do you want groups of 2, 3, or 4")
+print("How many people do you want in a group? 2, 3, or 4")
+userInput = input()
 
-if userInput == 2:
-    print(group2)
+if userInput == "4": 
+    print(groups4)
+elif userInput == "3":
+    print(groups3)
+else:
+    print(groups2)
