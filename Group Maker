@@ -1,0 +1,12 @@
+import random
+
+class_list = ["Leo","Mason","Chris","Nathan","Jaiden","Aidan","Gavin","Shahood","Marcos","Ryan","Muntag","Brandon","Caleb","Andrew","Wes","Abraham","Tyler","Thomas","Connor","Luke"]
+random.shuffle(class_list)
+
+groups2 = [class_list[i:i+2]for i in range[0, len(class_list),2]]
+groups2 = [class_list[i:i+3]for i in range[0, len(class_list),3]]
+groups2 = [class_list[i:i+4]for i in range[0, len(class_list),4]]
+
+print(groups2)
+print(groups3)
+print(groups4)
