@@ -21,10 +21,10 @@ while True:
 
     # Check if names in cannotWorkTogether are valid
     invalid_names = [name for name in cannotWorkTogether if name not in class_list]
-    if invalid_names == "no":
+    if "no" in cannotWorkTogether:
         continue
     elif invalid_names:
-        print(f"Invalid names: {', '.join(invalid_names)}")
+        print(f"Invalid names: {','.join(invalid_names)}")
         continue
 
     if len(cannotWorkTogether) > 0:
