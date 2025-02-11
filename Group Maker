@@ -12,7 +12,7 @@ groups4 = [class_list[i:i+4] for i in range(0, len(class_list), 4)]
 while True:
     print("Welcome to Group Maker")
     print("======================")
-    print()
+    print(class_list)
     print()
 
     print("Who cannot work together? If there isnt any then enter no (Please put in format name,name)")
