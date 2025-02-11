@@ -7,12 +7,50 @@ groups2 = [class_list[i:i+2] for i in range(0, len(class_list), 2)]
 groups3 = [class_list[i:i+3] for i in range(0, len(class_list), 3)]
 groups4 = [class_list[i:i+4] for i in range(0, len(class_list), 4)]
 
-print("How many people do you want in a group? 2, 3, or 4")
-userInput = input()
 
-if userInput == "4": 
-    print(groups4)
-elif userInput == "3":
-    print(groups3)
-else:
-    print(groups2)
+
+while True:
+    print("Welcome to Group Maker")
+    print("======================")
+    print()
+    print()
+
+    print("Who cannot work together? (Please put in format name,name)")
+    cannotWorkTogether = input().split(",")
+    cannotWorkTogether = [name.strip() for name in cannotWorkTogether]
+
+    # Check if names in cannotWorkTogether are valid
+    invalid_names = [name for name in cannotWorkTogether if name not in class_list]
+    if invalid_names:
+        print(f"Invalid names: {', '.join(invalid_names)}")
+        continue
+
+    if len(cannotWorkTogether) > 0:
+        class_list = [student for student in class_list if student not in cannotWorkTogether]
+        random.shuffle(class_list)
+
+    print("How many people do you want in a group? 2, 3, or 4?")
+    userInput = input()
+
+
+    if userInput == "4":
+        print(groups4)
+    elif userInput == "3":
+        print(groups3)
+    elif userInput == "2":
+        print(groups2)
+    else:
+        print("Invalid input! Please enter 2, 3, or 4.")
+    
+    print("Are you done making groups? y or n")
+    user_completed = input()
+    
+    if user_completed == 'y':
+        break  # Exit the loop if user is done
+    elif user_completed == 'n':
+        continue  # Continue looping if user is not done
+    else:
+        print("Invalid input! Please enter 'y' or 'n'.")
+
+
+    
