@@ -15,13 +15,15 @@ while True:
     print()
     print()
 
-    print("Who cannot work together? (Please put in format name,name)")
+    print("Who cannot work together? If there isnt any then enter no (Please put in format name,name)")
     cannotWorkTogether = input().split(",")
     cannotWorkTogether = [name.strip() for name in cannotWorkTogether]
 
     # Check if names in cannotWorkTogether are valid
     invalid_names = [name for name in cannotWorkTogether if name not in class_list]
-    if invalid_names:
+    if invalid_names == "no":
+        continue
+    elif invalid_names:
         print(f"Invalid names: {', '.join(invalid_names)}")
         continue
 
@@ -51,6 +53,3 @@ while True:
         continue  # Continue looping if user is not done
     else:
         print("Invalid input! Please enter 'y' or 'n'.")
-
-
-    
