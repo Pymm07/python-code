@@ -1,32 +1,28 @@
 import random
 
-
-
-
+# These line of code are data for the code to work and also the random.shuffle is used to shift around the names so they are differetn everytime
 class_list = ["Leo","Mason","Chris","Nathan","Jaiden","Aidan","Gavin","Shahood","Marcos","Ryan","Muntag","Brandon","Caleb","Andrew","Wes","Abraham","Tyler","Thomas","Connor","Luke"]
 random.shuffle(class_list)
 
-
+# This is how we determine the input of the user adn how to move the names into groups
 groups2 = [class_list[i:i+2] for i in range(0, len(class_list), 2)]
 groups3 = [class_list[i:i+3] for i in range(0, len(class_list), 3)]
 groups4 = [class_list[i:i+4] for i in range(0, len(class_list), 4)]
 
 
-
-
-
-
+# While loop so you can run the code until the user says stop
 while True:
+
+    # Displaying a opening screen with "Welcome to Group Maker" and a display of the class list
     print("Welcome to Group Maker")
     print("======================")
     print(class_list)
     print()
 
-
+    # This is to ask the user if there are any people that can't work together and you can put in 2 names or no
     print("Who cannot work together? If there isn't any then enter no (Please put in format name,name)")
     cannotWorkTogether = input().split(",")
     cannotWorkTogether = [name.strip() for name in cannotWorkTogether]
-
 
     # Check if names in cannotWorkTogether are valid
     invalid_names = [name for name in cannotWorkTogether if name not in class_list]
@@ -35,19 +31,16 @@ while True:
     elif invalid_names:
         print(f"Invalid names: {','.join(invalid_names)}")
         continue
-
-
+    # This is to run through the "class_list" see if the names that are inputed are there and if they are the code reshuffles until they are no in a group
     if len(cannotWorkTogether) > 0:
         class_list = [student for student in class_list if student in cannotWorkTogether]
         random.shuffle(class_list)
 
-
+    # Asking user how many people are wanted in a group
     print("How many people do you want in a group? 2, 3, or 4?")
     userInput = input()
 
-
-
-
+    # To determine user input and display the right groups and number of people in a group and also so they cannot use anything else but 234
     if userInput == "4":
         print(groups4)
     elif userInput == "3":
@@ -56,16 +49,14 @@ while True:
         print(groups2)
     else:
         print("Invalid input! Please enter 2, 3, or 4.")
-   
+    
+    #Asks user if they are done and if they enter y the code terminates and if it's no then the code runs again
     print("Are you done making groups? y or n")
     user_completed = input()
-   
+    
     if user_completed == 'y':
         break  # Exit the loop if user is done
     elif user_completed == 'n':
         continue  # Continue looping if user is not done
     else:
         print("Invalid input! Please enter 'y' or 'n'.")
-
-
-
