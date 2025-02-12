@@ -1,11 +1,18 @@
 import random
 
+
+
+
 class_list = ["Leo","Mason","Chris","Nathan","Jaiden","Aidan","Gavin","Shahood","Marcos","Ryan","Muntag","Brandon","Caleb","Andrew","Wes","Abraham","Tyler","Thomas","Connor","Luke"]
 random.shuffle(class_list)
+
 
 groups2 = [class_list[i:i+2] for i in range(0, len(class_list), 2)]
 groups3 = [class_list[i:i+3] for i in range(0, len(class_list), 3)]
 groups4 = [class_list[i:i+4] for i in range(0, len(class_list), 4)]
+
+
+
 
 
 
@@ -15,9 +22,11 @@ while True:
     print(class_list)
     print()
 
-    print("Who cannot work together? If there isnt any then enter no (Please put in format name,name)")
+
+    print("Who cannot work together? If there isn't any then enter no (Please put in format name,name)")
     cannotWorkTogether = input().split(",")
     cannotWorkTogether = [name.strip() for name in cannotWorkTogether]
+
 
     # Check if names in cannotWorkTogether are valid
     invalid_names = [name for name in cannotWorkTogether if name not in class_list]
@@ -27,12 +36,16 @@ while True:
         print(f"Invalid names: {','.join(invalid_names)}")
         continue
 
+
     if len(cannotWorkTogether) > 0:
-        class_list = [student for student in class_list if student not in cannotWorkTogether]
+        class_list = [student for student in class_list if student in cannotWorkTogether]
         random.shuffle(class_list)
+
 
     print("How many people do you want in a group? 2, 3, or 4?")
     userInput = input()
+
+
 
 
     if userInput == "4":
@@ -43,13 +56,16 @@ while True:
         print(groups2)
     else:
         print("Invalid input! Please enter 2, 3, or 4.")
-    
+   
     print("Are you done making groups? y or n")
     user_completed = input()
-    
+   
     if user_completed == 'y':
         break  # Exit the loop if user is done
     elif user_completed == 'n':
         continue  # Continue looping if user is not done
     else:
         print("Invalid input! Please enter 'y' or 'n'.")
+
+
+
